@@ -51,7 +51,7 @@ namespace WifiAuth.Web
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
-                app.UseErrorPage(ErrorPageOptions.ShowAll);
+                app.UseErrorPage();
             }
             else
             {
