@@ -1,2 +1,2 @@
 # Wifidog-Auth
-Repository for the PHP wifidog captive portal auth server 
+Repository for the Asp.Net wifidog captive portal auth server 
