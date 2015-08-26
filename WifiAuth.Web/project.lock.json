@@ -3,6 +3,19 @@
   "version": 1,
   "targets": {
     "DNX,Version=v4.5.1": {
+      "EntityFramework/6.0.0": {
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.dll": {},
+          "lib/net45/EntityFramework.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.dll": {},
+          "lib/net45/EntityFramework.SqlServer.dll": {}
+        }
+      },
       "Microsoft.AspNet.Antiforgery/1.0.0-beta6": {
         "dependencies": {
           "Microsoft.AspNet.DataProtection": "1.0.0-beta6",
@@ -1336,6 +1349,40 @@
         },
         "runtime": {
           "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll": {}
+        }
+      },
+      "System.Data.SQLite/1.0.98.1": {
+        "dependencies": {
+          "System.Data.SQLite.Core": "1.0.98.1",
+          "System.Data.SQLite.EF6": "1.0.98.1",
+          "System.Data.SQLite.Linq": "1.0.98.1"
+        }
+      },
+      "System.Data.SQLite.Core/1.0.98.1": {
+        "compile": {
+          "lib/net451/System.Data.SQLite.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.dll": {}
+        }
+      },
+      "System.Data.SQLite.EF6/1.0.98.1": {
+        "dependencies": {
+          "EntityFramework": "6.0.0.0"
+        },
+        "compile": {
+          "lib/net451/System.Data.SQLite.EF6.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.EF6.dll": {}
+        }
+      },
+      "System.Data.SQLite.Linq/1.0.98.1": {
+        "compile": {
+          "lib/net451/System.Data.SQLite.Linq.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.Linq.dll": {}
         }
       },
       "System.Reflection.Metadata/1.0.21": {
@@ -2754,6 +2801,7 @@
           "lib/DNXCore50/System.Console.dll": {}
         }
       },
+      "System.Data.SQLite/1.0.98.1": {},
       "System.Diagnostics.Contracts/4.0.0-beta-23109": {
         "dependencies": {
           "System.Runtime": "4.0.0-beta-23109"
@@ -3666,6 +3714,33 @@
     }
   },
   "libraries": {
+    "EntityFramework/6.0.0": {
+      "serviceable": true,
+      "sha512": "y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw==",
+      "files": [
+        "Content/App.config.transform",
+        "Content/Web.config.transform",
+        "EntityFramework.6.0.0.nupkg",
+        "EntityFramework.6.0.0.nupkg.sha512",
+        "EntityFramework.nuspec",
+        "lib/net40/EntityFramework.dll",
+        "lib/net40/EntityFramework.SqlServer.dll",
+        "lib/net40/EntityFramework.SqlServer.xml",
+        "lib/net40/EntityFramework.xml",
+        "lib/net45/EntityFramework.dll",
+        "lib/net45/EntityFramework.SqlServer.dll",
+        "lib/net45/EntityFramework.SqlServer.xml",
+        "lib/net45/EntityFramework.xml",
+        "tools/about_EntityFramework.help.txt",
+        "tools/EntityFramework.PowerShell.dll",
+        "tools/EntityFramework.PowerShell.Utility.dll",
+        "tools/EntityFramework.psd1",
+        "tools/EntityFramework.psm1",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/migrate.exe"
+      ]
+    },
     "Microsoft.AspNet.Antiforgery/1.0.0-beta6": {
       "serviceable": true,
       "sha512": "1L0MAy0A+Lc5zMAyr/tg78Lbk/ZdaRVEqf5F7zkG3oEqzQeMqK0tdYNDQce23egEBFTqw9ZEh5dcODL+I+f5sA==",
@@ -5084,6 +5159,102 @@
         "System.Console.4.0.0-beta-23109.nupkg",
         "System.Console.4.0.0-beta-23109.nupkg.sha512",
         "System.Console.nuspec"
+      ]
+    },
+    "System.Data.SQLite/1.0.98.1": {
+      "sha512": "R0hbk+vZxTsZC17NUvydYaWxJObnzxo0a4+BzcbJVCBQApF/AU6nxJGl7BlxsHRBhfRE3T14oJNTnJ2DQ4P0EA==",
+      "files": [
+        "System.Data.SQLite.1.0.98.1.nupkg",
+        "System.Data.SQLite.1.0.98.1.nupkg.sha512",
+        "System.Data.SQLite.nuspec"
+      ]
+    },
+    "System.Data.SQLite.Core/1.0.98.1": {
+      "sha512": "wUVD0G3+5GAZo3zXsBMGJBW/ixYDd7KYSM+i+4FPkaHjkV9PEAN2Cqo5WK5wbQwPPqd3RhYFrqkd0f002FunTA==",
+      "files": [
+        "build/net20/System.Data.SQLite.Core.targets",
+        "build/net20/x64/SQLite.Interop.dll",
+        "build/net20/x86/SQLite.Interop.dll",
+        "build/net40/System.Data.SQLite.Core.targets",
+        "build/net40/x64/SQLite.Interop.dll",
+        "build/net40/x86/SQLite.Interop.dll",
+        "build/net45/System.Data.SQLite.Core.targets",
+        "build/net45/x64/SQLite.Interop.dll",
+        "build/net45/x86/SQLite.Interop.dll",
+        "build/net451/System.Data.SQLite.Core.targets",
+        "build/net451/x64/SQLite.Interop.dll",
+        "build/net451/x86/SQLite.Interop.dll",
+        "build/net46/System.Data.SQLite.Core.targets",
+        "build/net46/x64/SQLite.Interop.dll",
+        "build/net46/x86/SQLite.Interop.dll",
+        "lib/net20/System.Data.SQLite.dll",
+        "lib/net20/System.Data.SQLite.xml",
+        "lib/net40/System.Data.SQLite.dll",
+        "lib/net40/System.Data.SQLite.xml",
+        "lib/net45/System.Data.SQLite.dll",
+        "lib/net45/System.Data.SQLite.xml",
+        "lib/net451/System.Data.SQLite.dll",
+        "lib/net451/System.Data.SQLite.xml",
+        "lib/net46/System.Data.SQLite.dll",
+        "lib/net46/System.Data.SQLite.xml",
+        "System.Data.SQLite.Core.1.0.98.1.nupkg",
+        "System.Data.SQLite.Core.1.0.98.1.nupkg.sha512",
+        "System.Data.SQLite.Core.nuspec"
+      ]
+    },
+    "System.Data.SQLite.EF6/1.0.98.1": {
+      "sha512": "2hkiK8TtE9qv7ViYFodOB8eUK0nfZnR3y/gU0zxUJs3Ugc8m9MsQW2d1pAIYCeI+y4yeKN8N+nUciWFVnF/tIg==",
+      "files": [
+        "content/net40/app.config.install.xdt",
+        "content/net40/app.config.transform",
+        "content/net40/web.config.install.xdt",
+        "content/net40/web.config.transform",
+        "content/net45/app.config.install.xdt",
+        "content/net45/app.config.transform",
+        "content/net45/web.config.install.xdt",
+        "content/net45/web.config.transform",
+        "content/net451/app.config.install.xdt",
+        "content/net451/app.config.transform",
+        "content/net451/web.config.install.xdt",
+        "content/net451/web.config.transform",
+        "content/net46/app.config.install.xdt",
+        "content/net46/app.config.transform",
+        "content/net46/web.config.install.xdt",
+        "content/net46/web.config.transform",
+        "lib/net40/System.Data.SQLite.EF6.dll",
+        "lib/net45/System.Data.SQLite.EF6.dll",
+        "lib/net451/System.Data.SQLite.EF6.dll",
+        "lib/net46/System.Data.SQLite.EF6.dll",
+        "System.Data.SQLite.EF6.1.0.98.1.nupkg",
+        "System.Data.SQLite.EF6.1.0.98.1.nupkg.sha512",
+        "System.Data.SQLite.EF6.nuspec",
+        "tools/net40/install.ps1",
+        "tools/net45/install.ps1",
+        "tools/net451/install.ps1",
+        "tools/net46/install.ps1"
+      ]
+    },
+    "System.Data.SQLite.Linq/1.0.98.1": {
+      "sha512": "9NKXPxAHBI4VtNTPl5NxHTe9B3CNvNvA9TsNQv6+zS4kJCxQdb2zxx2Yhq1eiQ0xk+EHcV8YuZfcCPd25zFohQ==",
+      "files": [
+        "content/net20/app.config.transform",
+        "content/net20/web.config.transform",
+        "content/net40/app.config.transform",
+        "content/net40/web.config.transform",
+        "content/net45/app.config.transform",
+        "content/net45/web.config.transform",
+        "content/net451/app.config.transform",
+        "content/net451/web.config.transform",
+        "content/net46/app.config.transform",
+        "content/net46/web.config.transform",
+        "lib/net20/System.Data.SQLite.Linq.dll",
+        "lib/net40/System.Data.SQLite.Linq.dll",
+        "lib/net45/System.Data.SQLite.Linq.dll",
+        "lib/net451/System.Data.SQLite.Linq.dll",
+        "lib/net46/System.Data.SQLite.Linq.dll",
+        "System.Data.SQLite.Linq.1.0.98.1.nupkg",
+        "System.Data.SQLite.Linq.1.0.98.1.nupkg.sha512",
+        "System.Data.SQLite.Linq.nuspec"
       ]
     },
     "System.Diagnostics.Contracts/4.0.0-beta-23109": {
@@ -6592,7 +6763,8 @@
       "Microsoft.Framework.Configuration.Json >= 1.0.0-beta6",
       "Microsoft.Framework.Logging >= 1.0.0-beta6",
       "Microsoft.Framework.Logging.Console >= 1.0.0-beta6",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-beta6"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-beta6",
+      "System.Data.SQLite >= 1.0.98.1"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
