@@ -842,6 +842,25 @@
           "lib/net45/Microsoft.CodeAnalysis.CSharp.dll": {}
         }
       },
+      "Microsoft.Data.Sqlite/1.0.0-beta6": {
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6",
+          "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Data"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Framework.Caching.Abstractions/1.0.0-beta6": {
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -2101,6 +2120,23 @@
           "lib/dotnet/Microsoft.CSharp.dll": {}
         }
       },
+      "Microsoft.Data.Sqlite/1.0.0-beta6": {
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6",
+          "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta6",
+          "System.AppContext": "4.0.0-beta-23109",
+          "System.Data.Common": "4.0.0-beta-23109",
+          "System.IO.FileSystem": "4.0.0-beta-23109",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Runtime.InteropServices": "4.0.20-beta-23109"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Framework.Caching.Abstractions/1.0.0-beta6": {
         "dependencies": {
           "System.Collections": "4.0.10-beta-23109",
@@ -2602,6 +2638,17 @@
           "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "System.AppContext/4.0.0-beta-23109": {
+        "dependencies": {
+          "System.Runtime": "4.0.0-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.AppContext.dll": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.AppContext.dll": {}
+        }
+      },
       "System.Collections/4.0.10-beta-23109": {
         "dependencies": {
           "System.Runtime": "4.0.20-beta-23109"
@@ -2752,6 +2799,25 @@
         },
         "runtime": {
           "lib/DNXCore50/System.Console.dll": {}
+        }
+      },
+      "System.Data.Common/4.0.0-beta-23109": {
+        "dependencies": {
+          "System.Collections": "4.0.10-beta-23109",
+          "System.Collections.NonGeneric": "4.0.0-beta-23109",
+          "System.Globalization": "4.0.10-beta-23109",
+          "System.IO": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109",
+          "System.Runtime.Extensions": "4.0.10-beta-23109",
+          "System.Text.RegularExpressions": "4.0.0-beta-23109",
+          "System.Threading.Tasks": "4.0.0-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Data.Common.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Data.Common.dll": {}
         }
       },
       "System.Diagnostics.Contracts/4.0.0-beta-23109": {
@@ -4354,6 +4420,28 @@
         "ref/wpa81/_._"
       ]
     },
+    "Microsoft.Data.Sqlite/1.0.0-beta6": {
+      "serviceable": true,
+      "sha512": "7yyqsIahqnM+5/9To3vhoYFttNlvDea9ASAayxqN0DxzpMv9Sguty22Qj5yM2DPlY1AGLCGxl0B/Jayp/7ePNQ==",
+      "files": [
+        "lib/dnx451/Microsoft.Data.Sqlite.dll",
+        "lib/dnx451/Microsoft.Data.Sqlite.xml",
+        "lib/dnxcore50/Microsoft.Data.Sqlite.dll",
+        "lib/dnxcore50/Microsoft.Data.Sqlite.xml",
+        "lib/dotnet/Microsoft.Data.Sqlite.dll",
+        "lib/dotnet/Microsoft.Data.Sqlite.xml",
+        "lib/net45/Microsoft.Data.Sqlite.dll",
+        "lib/net45/Microsoft.Data.Sqlite.xml",
+        "Microsoft.Data.Sqlite.1.0.0-beta6.nupkg",
+        "Microsoft.Data.Sqlite.1.0.0-beta6.nupkg.sha512",
+        "Microsoft.Data.Sqlite.nuspec",
+        "runtimes/win/native/x86/sqlite3.dll",
+        "runtimes/win10-arm/native/sqlite3.dll",
+        "runtimes/win10-x64/native/sqlite3.dll",
+        "runtimes/win10-x86/native/sqlite3.dll",
+        "runtimes/win-x86/native/sqlite3.dll"
+      ]
+    },
     "Microsoft.Framework.Caching.Abstractions/1.0.0-beta6": {
       "serviceable": true,
       "sha512": "hIxSL1ilaYi6OGBqHeZ/Tao2uRbEEIJfsTY/hZm41FRqfNexmblDfmBd++XDgEr5nJ3iVHvcko6E456gSAbqlw==",
@@ -4856,6 +4944,30 @@
         "tools/install.ps1"
       ]
     },
+    "System.AppContext/4.0.0-beta-23109": {
+      "serviceable": true,
+      "sha512": "gD3TGhx6seldenQjuYTYZ7vUPzwlE1+T7gsxngwdK7Yosbpqt8XpwFLN/XEO9hSldB+qbQFsU3dzvUjWu+Nl0A==",
+      "files": [
+        "lib/DNXCore50/System.AppContext.dll",
+        "lib/net46/System.AppContext.dll",
+        "lib/netcore50/System.AppContext.dll",
+        "ref/dotnet/de/System.AppContext.xml",
+        "ref/dotnet/es/System.AppContext.xml",
+        "ref/dotnet/fr/System.AppContext.xml",
+        "ref/dotnet/it/System.AppContext.xml",
+        "ref/dotnet/ja/System.AppContext.xml",
+        "ref/dotnet/ko/System.AppContext.xml",
+        "ref/dotnet/ru/System.AppContext.xml",
+        "ref/dotnet/System.AppContext.dll",
+        "ref/dotnet/System.AppContext.xml",
+        "ref/dotnet/zh-hans/System.AppContext.xml",
+        "ref/dotnet/zh-hant/System.AppContext.xml",
+        "ref/net46/System.AppContext.dll",
+        "System.AppContext.4.0.0-beta-23109.nupkg",
+        "System.AppContext.4.0.0-beta-23109.nupkg.sha512",
+        "System.AppContext.nuspec"
+      ]
+    },
     "System.Collections/4.0.10-beta-23109": {
       "serviceable": true,
       "sha512": "xzZqNFzDmEPPBL3YREKRSPEaZCD0caw6whiKPrQMrpu2w3x+/QWuegAJHFb/rFqgHDMArv25yt0rxWfVh+raJQ==",
@@ -5084,6 +5196,29 @@
         "System.Console.4.0.0-beta-23109.nupkg",
         "System.Console.4.0.0-beta-23109.nupkg.sha512",
         "System.Console.nuspec"
+      ]
+    },
+    "System.Data.Common/4.0.0-beta-23109": {
+      "serviceable": true,
+      "sha512": "ImJJnn7kE4k4vlZ/Duo5ZyPmptlk2Z5LrgYcFSdZbbMthlwOpFryq6T0Ynm/Gg0bpGOxcU/Dk8WKc8VJ5dJj2w==",
+      "files": [
+        "lib/dotnet/System.Data.Common.dll",
+        "lib/net46/System.Data.Common.dll",
+        "ref/dotnet/de/System.Data.Common.xml",
+        "ref/dotnet/es/System.Data.Common.xml",
+        "ref/dotnet/fr/System.Data.Common.xml",
+        "ref/dotnet/it/System.Data.Common.xml",
+        "ref/dotnet/ja/System.Data.Common.xml",
+        "ref/dotnet/ko/System.Data.Common.xml",
+        "ref/dotnet/ru/System.Data.Common.xml",
+        "ref/dotnet/System.Data.Common.dll",
+        "ref/dotnet/System.Data.Common.xml",
+        "ref/dotnet/zh-hans/System.Data.Common.xml",
+        "ref/dotnet/zh-hant/System.Data.Common.xml",
+        "ref/net46/System.Data.Common.dll",
+        "System.Data.Common.4.0.0-beta-23109.nupkg",
+        "System.Data.Common.4.0.0-beta-23109.nupkg.sha512",
+        "System.Data.Common.nuspec"
       ]
     },
     "System.Diagnostics.Contracts/4.0.0-beta-23109": {
@@ -6592,7 +6727,8 @@
       "Microsoft.Framework.Configuration.Json >= 1.0.0-beta6",
       "Microsoft.Framework.Logging >= 1.0.0-beta6",
       "Microsoft.Framework.Logging.Console >= 1.0.0-beta6",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-beta6"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-beta6",
+      "Microsoft.Data.Sqlite >= 1.0.0-beta6"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []

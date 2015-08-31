@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNet.Mvc;
+using Microsoft.Data.Sqlite;
 
 namespace WifiAuth.Web.Controllers
 {
@@ -10,6 +12,12 @@ namespace WifiAuth.Web.Controllers
     {
         public IActionResult Index()
         {
+            using (SqliteConnection conn = new SqliteConnection(@"Data Source=E:/Database/SQLite/default.db;Cache=Shared"))
+            {
+                conn.Open();
+                var d = conn.Query("SELECT * FROM FOO;");
+            }
+
             return View();
         }
 
