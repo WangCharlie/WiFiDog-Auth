@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Dapper;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Sqlite;
+using Dapper;
 
 namespace WifiAuth.Web.Controllers
 {
