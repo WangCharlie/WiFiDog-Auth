@@ -25,7 +25,7 @@ namespace WifiAuth.Web.Controllers
         /// <param name="sys_load">系统载入</param>
         /// <param name="wifidog_uptime">持续运行时间（这个数据经常会有问题）</param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("ping")]
         public IActionResult Ping(string gw_id,
                                   long sys_uptime,
                                   long sys_memfree,
@@ -46,7 +46,7 @@ namespace WifiAuth.Web.Controllers
         /// <param name="mac">登录设备Mac地址</param>
         /// <param name="url">跳转的地址</param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("login")]
         public IActionResult Login(string gw_address,
                                    int gw_port,
                                    string gw_id,
@@ -63,7 +63,7 @@ namespace WifiAuth.Web.Controllers
         /// <param name="password"></param>
         /// <param name="validCode"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("login")]
         public IActionResult Login(string gw_address,
                                    int gw_port,
                                    string gw_id,
@@ -80,7 +80,7 @@ namespace WifiAuth.Web.Controllers
         /// 网关验证设备Token
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("auth")]
         public IActionResult Auth(string stage,
                                   string ip,
                                   string mac,
@@ -91,13 +91,13 @@ namespace WifiAuth.Web.Controllers
             return Content("auth: 1");
         }
 
-        [HttpGet]
+        [HttpGet("portal")]
         public IActionResult Portal(string gw_id)
         {
             return Redirect(Url.Action("~/"));
         }
 
-        [HttpGet]
+        [HttpGet("message")]
         public IActionResult Message(string message)
         {
             return View("Message");

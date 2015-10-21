@@ -39,5 +39,11 @@ namespace WifiAuth.Web.Controllers
         {
             return View("~/Views/Shared/Error.cshtml");
         }
+        
+        [HttpGet("api/smscode")]
+        public IActionResult GetSMS()
+        {
+            return Content("SendSMS");
+        }
     }
 }
