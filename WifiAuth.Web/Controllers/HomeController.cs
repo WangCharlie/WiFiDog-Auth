@@ -5,11 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Sqlite;
 using Dapper;
+using WifiAuth.Web.Services;
 
 namespace WifiAuth.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IEmailSender _emailSender;
+        private readonly ISmsSender _smsSender;
+
+        public HomeController(
+            IEmailSender emailSender,
+            ISmsSender smsSender)
+        {
+            _emailSender = emailSender;
+            _smsSender = smsSender;
+        }
+
         public IActionResult Index()
         {
             using (SqliteConnection conn = new SqliteConnection(@"Data Source=E:/Database/SQLite/default.db;Cache=Shared"))
@@ -40,10 +52,11 @@ namespace WifiAuth.Web.Controllers
             return View("~/Views/Shared/Error.cshtml");
         }
         
-        [HttpGet("api/smscode")]
-        public IActionResult GetSMS()
+        //[HttpGet("api/smscode")]
+        public async Task<IActionResult> SendCode(string phoneNumber)
         {
-            return Content("SendSMS");
+            string result = await _smsSender.SendTemplateSmsAsync(phoneNumber, 14756, DateTime.Now.Millisecond.ToString());
+            return Content(result);
         }
     }
 }

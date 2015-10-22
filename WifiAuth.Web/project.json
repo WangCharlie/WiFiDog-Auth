@@ -4,6 +4,7 @@
 
   "dependencies": {
     "Dapper.DNX": "1.43.0-beta2",
+    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-beta8",
     "Microsoft.AspNet.Diagnostics": "1.0.0-beta8",
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-beta8",
     "Microsoft.AspNet.Mvc": "6.0.0-beta8",

@@ -42,6 +42,49 @@
           "lib/dnx451/Microsoft.AspNet.Antiforgery.dll": {}
         }
       },
+      "Microsoft.AspNet.Authentication/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.DataProtection": "1.0.0-beta8",
+          "Microsoft.AspNet.Http": "1.0.0-beta8",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.OptionsModel": "1.0.0-beta8",
+          "Microsoft.Framework.WebEncoders": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication.OAuth/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Authentication": "1.0.0-beta8",
+          "Newtonsoft.Json": "6.0.6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Net.Http"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.OAuth.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.OAuth.dll": {}
+        }
+      },
       "Microsoft.AspNet.Authorization/1.0.0-beta8": {
         "type": "package",
         "dependencies": {
@@ -1581,6 +1624,37 @@
         },
         "runtime": {
           "lib/dnxcore50/Microsoft.AspNet.Antiforgery.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.DataProtection": "1.0.0-beta8",
+          "Microsoft.AspNet.Http": "1.0.0-beta8",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.OptionsModel": "1.0.0-beta8",
+          "Microsoft.Framework.WebEncoders": "1.0.0-beta8"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication.OAuth/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Authentication": "1.0.0-beta8",
+          "Newtonsoft.Json": "6.0.6",
+          "System.Net.Http": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.OAuth.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.OAuth.dll": {}
         }
       },
       "Microsoft.AspNet.Authorization/1.0.0-beta8": {
@@ -3269,6 +3343,19 @@
           "lib/DNXCore50/System.Linq.Expressions.dll": {}
         }
       },
+      "System.Net.Http/4.0.1-beta-23409": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.0.0",
+          "System.Net.Primitives": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Text.Encoding": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.Http.dll": {}
+        }
+      },
       "System.Net.Primitives/4.0.11-beta-23409": {
         "type": "package",
         "dependencies": {
@@ -3908,6 +3995,49 @@
         },
         "runtime": {
           "lib/dnx451/Microsoft.AspNet.Antiforgery.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.DataProtection": "1.0.0-beta8",
+          "Microsoft.AspNet.Http": "1.0.0-beta8",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.OptionsModel": "1.0.0-beta8",
+          "Microsoft.Framework.WebEncoders": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication.OAuth/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Authentication": "1.0.0-beta8",
+          "Newtonsoft.Json": "6.0.6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Net.Http"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.OAuth.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.OAuth.dll": {}
         }
       },
       "Microsoft.AspNet.Authorization/1.0.0-beta8": {
@@ -5451,6 +5581,49 @@
         },
         "runtime": {
           "lib/dnx451/Microsoft.AspNet.Antiforgery.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.DataProtection": "1.0.0-beta8",
+          "Microsoft.AspNet.Http": "1.0.0-beta8",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.OptionsModel": "1.0.0-beta8",
+          "Microsoft.Framework.WebEncoders": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication.OAuth/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Authentication": "1.0.0-beta8",
+          "Newtonsoft.Json": "6.0.6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Net.Http"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.OAuth.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.AspNet.Authentication.OAuth.dll": {}
         }
       },
       "Microsoft.AspNet.Authorization/1.0.0-beta8": {
@@ -7000,6 +7173,37 @@
           "lib/dnxcore50/Microsoft.AspNet.Antiforgery.dll": {}
         }
       },
+      "Microsoft.AspNet.Authentication/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.DataProtection": "1.0.0-beta8",
+          "Microsoft.AspNet.Http": "1.0.0-beta8",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.OptionsModel": "1.0.0-beta8",
+          "Microsoft.Framework.WebEncoders": "1.0.0-beta8"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication.OAuth/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Authentication": "1.0.0-beta8",
+          "Newtonsoft.Json": "6.0.6",
+          "System.Net.Http": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.OAuth.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.OAuth.dll": {}
+        }
+      },
       "Microsoft.AspNet.Authorization/1.0.0-beta8": {
         "type": "package",
         "dependencies": {
@@ -8407,6 +8611,33 @@
           "runtimes/win7/lib/dotnet/System.IO.FileSystem.Watcher.dll": {}
         }
       },
+      "runtime.win7.System.Net.Http/4.0.1-beta-23409": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.0.0",
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Globalization": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.IO.Compression": "4.0.0",
+          "System.Net.Primitives": "4.0.10",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.Handles": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23409",
+          "System.Text.Encoding": "4.0.10",
+          "System.Threading": "4.0.0",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/_._": {}
+        },
+        "runtime": {
+          "runtimes/win7/lib/DNXCore50/System.Net.Http.dll": {}
+        }
+      },
       "runtime.win7.System.Net.Primitives/4.0.11-beta-23409": {
         "type": "package",
         "dependencies": {
@@ -8839,6 +9070,26 @@
           "lib/DNXCore50/System.IO.dll": {}
         }
       },
+      "System.IO.Compression/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.0",
+          "System.IO": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Runtime.Extensions": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.0",
+          "System.Text.Encoding": "4.0.0",
+          "System.Threading": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet/System.IO.Compression.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.IO.Compression.dll": {}
+        }
+      },
       "System.IO.FileSystem/4.0.1-beta-23409": {
         "type": "package",
         "dependencies": {
@@ -8914,6 +9165,19 @@
         },
         "runtime": {
           "lib/DNXCore50/System.Linq.Expressions.dll": {}
+        }
+      },
+      "System.Net.Http/4.0.1-beta-23409": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.0.0",
+          "System.Net.Primitives": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Text.Encoding": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.Http.dll": {}
         }
       },
       "System.Net.Primitives/4.0.11-beta-23409": {
@@ -9617,6 +9881,37 @@
         },
         "runtime": {
           "lib/dnxcore50/Microsoft.AspNet.Antiforgery.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.DataProtection": "1.0.0-beta8",
+          "Microsoft.AspNet.Http": "1.0.0-beta8",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.OptionsModel": "1.0.0-beta8",
+          "Microsoft.Framework.WebEncoders": "1.0.0-beta8"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Authentication.OAuth/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Authentication": "1.0.0-beta8",
+          "Newtonsoft.Json": "6.0.6",
+          "System.Net.Http": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.OAuth.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.AspNet.Authentication.OAuth.dll": {}
         }
       },
       "Microsoft.AspNet.Authorization/1.0.0-beta8": {
@@ -11026,6 +11321,33 @@
           "runtimes/win7/lib/dotnet/System.IO.FileSystem.Watcher.dll": {}
         }
       },
+      "runtime.win7.System.Net.Http/4.0.1-beta-23409": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.0.0",
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Globalization": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.IO.Compression": "4.0.0",
+          "System.Net.Primitives": "4.0.10",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.Handles": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23409",
+          "System.Text.Encoding": "4.0.10",
+          "System.Threading": "4.0.0",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/_._": {}
+        },
+        "runtime": {
+          "runtimes/win7/lib/DNXCore50/System.Net.Http.dll": {}
+        }
+      },
       "runtime.win7.System.Net.Primitives/4.0.11-beta-23409": {
         "type": "package",
         "dependencies": {
@@ -11458,6 +11780,26 @@
           "lib/DNXCore50/System.IO.dll": {}
         }
       },
+      "System.IO.Compression/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.0",
+          "System.IO": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Runtime.Extensions": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.0",
+          "System.Text.Encoding": "4.0.0",
+          "System.Threading": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet/System.IO.Compression.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.IO.Compression.dll": {}
+        }
+      },
       "System.IO.FileSystem/4.0.1-beta-23409": {
         "type": "package",
         "dependencies": {
@@ -11533,6 +11875,19 @@
         },
         "runtime": {
           "lib/DNXCore50/System.Linq.Expressions.dll": {}
+        }
+      },
+      "System.Net.Http/4.0.1-beta-23409": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.0.0",
+          "System.Net.Primitives": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Text.Encoding": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.Http.dll": {}
         }
       },
       "System.Net.Primitives/4.0.11-beta-23409": {
@@ -12225,6 +12580,34 @@
         "Microsoft.AspNet.Antiforgery.1.0.0-beta8.nupkg",
         "Microsoft.AspNet.Antiforgery.1.0.0-beta8.nupkg.sha512",
         "Microsoft.AspNet.Antiforgery.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.Authentication/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "9iPUrRKhfZdoFFINUm+n2QZhOLY2Ty/XL6Z9nWvNsuWhhojK+2VHUSpzGVl03wg4sceRmMN40DK5HcKOJ9cYkg==",
+      "files": [
+        "lib/dnx451/Microsoft.AspNet.Authentication.dll",
+        "lib/dnx451/Microsoft.AspNet.Authentication.xml",
+        "lib/dnxcore50/Microsoft.AspNet.Authentication.dll",
+        "lib/dnxcore50/Microsoft.AspNet.Authentication.xml",
+        "Microsoft.AspNet.Authentication.1.0.0-beta8.nupkg",
+        "Microsoft.AspNet.Authentication.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.AspNet.Authentication.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.Authentication.OAuth/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "8mwfBMQu8MF2NDFK250d1EUFCH5ZoJI5SmXJ71zTg3nisuTL05x3EWtnhIP9ZRD96CG/jvRQz/WJfRw7sRyeVw==",
+      "files": [
+        "lib/dnx451/Microsoft.AspNet.Authentication.OAuth.dll",
+        "lib/dnx451/Microsoft.AspNet.Authentication.OAuth.xml",
+        "lib/dnxcore50/Microsoft.AspNet.Authentication.OAuth.dll",
+        "lib/dnxcore50/Microsoft.AspNet.Authentication.OAuth.xml",
+        "Microsoft.AspNet.Authentication.OAuth.1.0.0-beta8.nupkg",
+        "Microsoft.AspNet.Authentication.OAuth.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.AspNet.Authentication.OAuth.nuspec"
       ]
     },
     "Microsoft.AspNet.Authorization/1.0.0-beta8": {
@@ -13654,6 +14037,39 @@
         "runtimes/win7/lib/dotnet/zh-hant/System.IO.FileSystem.Watcher.xml"
       ]
     },
+    "runtime.win7.System.Net.Http/4.0.1-beta-23409": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "PsM0ItHJ6ahnDzXPXJeCQpKwL/VOQ4GjFiI4Y+HCkHZlaTSwJayoLuroDU545G+cvEtmbMinLNDqG5HdKQExMw==",
+      "files": [
+        "ref/dotnet/_._",
+        "runtime.win7.System.Net.Http.4.0.1-beta-23409.nupkg",
+        "runtime.win7.System.Net.Http.4.0.1-beta-23409.nupkg.sha512",
+        "runtime.win7.System.Net.Http.nuspec",
+        "runtimes/win7/lib/DNXCore50/de/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/es/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/fr/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/it/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/ja/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/ko/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/ru/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/System.Net.Http.dll",
+        "runtimes/win7/lib/DNXCore50/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/zh-hans/System.Net.Http.xml",
+        "runtimes/win7/lib/DNXCore50/zh-hant/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/de/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/es/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/fr/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/it/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/ja/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/ko/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/ru/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/System.Net.Http.dll",
+        "runtimes/win7/lib/netcore50/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/zh-hans/System.Net.Http.xml",
+        "runtimes/win7/lib/netcore50/zh-hant/System.Net.Http.xml"
+      ]
+    },
     "runtime.win7.System.Net.Primitives/4.0.11-beta-23409": {
       "type": "package",
       "serviceable": true,
@@ -14699,6 +15115,46 @@
         "System.IO.nuspec"
       ]
     },
+    "System.IO.Compression/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "S+ljBE3py8pujTrsOOYHtDg2cnAifn6kBu/pfh1hMWIXd8DoVh0ADTA6Puv4q+nYj+Msm6JoFLNwuRSmztbsDQ==",
+      "files": [
+        "lib/dotnet/System.IO.Compression.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.IO.Compression.dll",
+        "lib/win8/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/dotnet/de/System.IO.Compression.xml",
+        "ref/dotnet/es/System.IO.Compression.xml",
+        "ref/dotnet/fr/System.IO.Compression.xml",
+        "ref/dotnet/it/System.IO.Compression.xml",
+        "ref/dotnet/ja/System.IO.Compression.xml",
+        "ref/dotnet/ko/System.IO.Compression.xml",
+        "ref/dotnet/ru/System.IO.Compression.xml",
+        "ref/dotnet/System.IO.Compression.dll",
+        "ref/dotnet/System.IO.Compression.xml",
+        "ref/dotnet/zh-hans/System.IO.Compression.xml",
+        "ref/dotnet/zh-hant/System.IO.Compression.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/System.IO.Compression.dll",
+        "ref/netcore50/System.IO.Compression.xml",
+        "ref/win8/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "runtime.json",
+        "System.IO.Compression.4.0.0.nupkg",
+        "System.IO.Compression.4.0.0.nupkg.sha512",
+        "System.IO.Compression.nuspec"
+      ]
+    },
     "System.IO.FileSystem/4.0.1-beta-23409": {
       "type": "package",
       "serviceable": true,
@@ -14861,6 +15317,25 @@
         "System.Linq.Expressions.4.0.11-beta-23409.nupkg",
         "System.Linq.Expressions.4.0.11-beta-23409.nupkg.sha512",
         "System.Linq.Expressions.nuspec"
+      ]
+    },
+    "System.Net.Http/4.0.1-beta-23409": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "h9CPYbGzH/9faYD24qLNBY+/dH8F67AktW3UvrEJR7Xan3bzXKJd5Po/3+qRswNsRUH2P/HBSK5fZE3CKVmhxg==",
+      "files": [
+        "lib/net45/_._",
+        "lib/win8/_._",
+        "lib/wpa81/_._",
+        "ref/dotnet/System.Net.Http.dll",
+        "ref/net45/_._",
+        "ref/netcore50/System.Net.Http.dll",
+        "ref/win8/_._",
+        "ref/wpa81/_._",
+        "runtime.json",
+        "System.Net.Http.4.0.1-beta-23409.nupkg",
+        "System.Net.Http.4.0.1-beta-23409.nupkg.sha512",
+        "System.Net.Http.nuspec"
       ]
     },
     "System.Net.Primitives/4.0.11-beta-23409": {
@@ -16335,6 +16810,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Dapper.DNX >= 1.43.0-beta2",
+      "Microsoft.AspNet.Authentication.OAuth >= 1.0.0-beta8",
       "Microsoft.AspNet.Diagnostics >= 1.0.0-beta8",
       "Microsoft.AspNet.IISPlatformHandler >= 1.0.0-beta8",
       "Microsoft.AspNet.Mvc >= 6.0.0-beta8",

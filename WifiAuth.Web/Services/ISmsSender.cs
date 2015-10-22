@@ -9,6 +9,6 @@ namespace WifiAuth.Web.Services
     {
         Task SendSmsAsync(string number, string message);
 
-        Task SendTemplateSmsAsync(string number, int templateId, params string[] messageParams);
+        Task<String> SendTemplateSmsAsync(string number, int templateId, params string[] @params);
     }
 }
