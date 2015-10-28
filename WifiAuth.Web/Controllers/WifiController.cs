@@ -27,10 +27,10 @@ namespace WifiAuth.Web.Controllers
         /// <returns></returns>
         [HttpGet("ping")]
         public IActionResult Ping(string gw_id,
-                                  long sys_uptime,
-                                  long sys_memfree,
-                                  float sys_load,
-                                  long wifidog_uptime)
+                                  long   sys_uptime,
+                                  long   sys_memfree,
+                                  float  sys_load,
+                                  long   wifidog_uptime)
         {
             //to do something
 
@@ -48,7 +48,7 @@ namespace WifiAuth.Web.Controllers
         /// <returns></returns>
         [HttpGet("login")]
         public IActionResult Login(string gw_address,
-                                   int gw_port,
+                                   int    gw_port,
                                    string gw_id,
                                    string mac,
                                    string url)
@@ -65,7 +65,7 @@ namespace WifiAuth.Web.Controllers
         /// <returns></returns>
         [HttpPost("login")]
         public IActionResult Login(string gw_address,
-                                   int gw_port,
+                                   int    gw_port,
                                    string gw_id,
                                    string mac,
                                    string url,
@@ -85,8 +85,8 @@ namespace WifiAuth.Web.Controllers
                                   string ip,
                                   string mac,
                                   string token,
-                                  long incoming,
-                                  long outgoing)
+                                  long   incoming,
+                                  long   outgoing)
         {
             return Content("auth: 1");
         }

@@ -52,10 +52,11 @@ namespace WifiAuth.Web.Controllers
             return View("~/Views/Shared/Error.cshtml");
         }
         
-        //[HttpGet("api/smscode")]
+        [HttpPost("api/sendcode")]
         public async Task<IActionResult> SendCode(string phoneNumber)
         {
-            string result = await _smsSender.SendTemplateSmsAsync(phoneNumber, 14756, DateTime.Now.Millisecond.ToString());
+            string result = await _smsSender.SendSmsAsync(phoneNumber, Convert.ToString(((int)(new Random().NextDouble() * 0x100000) << 0)));
+
             return Content(result);
         }
     }

@@ -21,7 +21,7 @@ namespace WifiAuth.Web.Services
         private static readonly String UCPASS_SMS_TOKEN = "";
         private static readonly String UCPASS_SMS_APPID = "aa166f6bb21d4dfaa36c0fd5270dc3bb";
         private static readonly String UCPASS_SMS_TEMPLATE_URL = "https://api.ucpaas.com/{0}/Accounts/{1}/Messages/templateSMS.json?sig={2}";
-        private static readonly String UCPASS_SMS_TEMPLATE_ID = "14756";
+        private static readonly Int32  UCPASS_SMS_TEMPLATE_ID = 14756;
         private static readonly String UCPASS_SMS_REQUEST_MESSAGE = "{\"templateSMS\":{\"appId\":null,\"param\":null,\"templateId\":null,\"to\":null}}";
 
         public Task SendEmailAsync(string email, string subject, string message)
@@ -30,10 +30,10 @@ namespace WifiAuth.Web.Services
             return Task.FromResult(0);
         }
 
-        public Task SendSmsAsync(string number, string message)
+        public async Task<String> SendSmsAsync(string number, string message)
         {
             // Plug in your SMS service here to send a text message.
-            return Task.FromResult(0);
+            return await SendTemplateSmsAsync(number, UCPASS_SMS_TEMPLATE_ID, message);
         }
 
         public async Task<String> SendTemplateSmsAsync(string number, int templateId, params string[] @params)
@@ -57,14 +57,16 @@ namespace WifiAuth.Web.Services
                 {
                     requestMessage.RequestUri = new Uri(uriStr);
                     requestMessage.Method = HttpMethod.Post;
-                    requestMessage.Headers.Add("Authorization", authStr);
-                    requestMessage.Headers.Add("Accept", "application/json");
-                    requestMessage.Content = new StringContent(data, UTF8Encoding.UTF8, "application/json;charset=utf-8");
+                    requestMessage.Headers.TryAddWithoutValidation("Authorization", authStr);
+                    requestMessage.Headers.TryAddWithoutValidation("Accept", "application/json");
+                    requestMessage.Content = new StringContent(data, UTF8Encoding.UTF8, "application/json");
 
-                    HttpResponseMessage responseMessage = await httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseContentRead);
-                    string content = await responseMessage.Content.ReadAsStringAsync();
+                    using (HttpResponseMessage responseMessage = await httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseContentRead))
+                    {
+                        string content = await responseMessage.Content.ReadAsStringAsync();
 
-                    return content;
+                        return content;
+                    }
                 }
             }
         }
