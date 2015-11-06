@@ -59,9 +59,14 @@ namespace WifiAuth.Web.Controllers
         /// <summary>
         /// 设备提交登录验证
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="password"></param>
-        /// <param name="validCode"></param>
+        /// <param name="gw_address">网关地址</param>
+        /// <param name="gw_port">网关端口</param>
+        /// <param name="gw_id">网关标识</param>
+        /// <param name="mac">客户端Mac地址</param>
+        /// <param name="url">跳转的地址</param>
+        /// <param name="userName">用户名</param>
+        /// <param name="password">密码</param>
+        /// <param name="validCode">验证码</param>
         /// <returns></returns>
         [HttpPost("login")]
         public IActionResult Login(string gw_address,
@@ -73,13 +78,27 @@ namespace WifiAuth.Web.Controllers
                                    string password,
                                    string validCode)
         {
-            return Redirect(string.Format("http://{0}:{1}/wifidog/auth?token={2}",gw_address,gw_port,DateTime.Now.Ticks));
+            //to do something
+
+            return Redirect(string.Format("http://{0}:{1}/wifidog/auth?token={2}", gw_address, gw_port, DateTime.Now.Ticks));
         }
 
         /// <summary>
         /// 网关验证设备Token
         /// </summary>
-        /// <returns></returns>
+        /// <param name="stage">认证阶段(logoin:登录 counters:流量计数)</param>
+        /// <param name="ip">客户端IP地址</param>
+        /// <param name="mac">客户端Mac地址</param>
+        /// <param name="token">验证令牌</param>
+        /// <param name="incoming">下载流量</param>
+        /// <param name="outgoing">上传流量</param>
+        /// <returns>
+        /// -1 - AUTH_ERROR - An error occurred during the validation process
+        /// 0  - AUTH_DENIED - User firewall users are deleted and the user removed. 
+        /// 1  - AUTH_ALLOWED - User was valid, add firewall rules if not present 
+        /// 5  - AUTH_VALIDATION - Permit user access to email to get validation email under default rules （用户邮件验证时，向用户开放email） 
+        /// 6  - AUTH_VALIDATION_FAILED - User email validation timeout has occured and user/firewall is deleted（用户邮件验证超时，防火墙关闭该用户） 
+        /// </returns>
         [HttpGet("auth")]
         public IActionResult Auth(string stage,
                                   string ip,
@@ -91,12 +110,22 @@ namespace WifiAuth.Web.Controllers
             return Content("auth: 1");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gw_id">网关标识</param>
+        /// <returns></returns>
         [HttpGet("portal")]
         public IActionResult Portal(string gw_id)
         {
             return Redirect(Url.Action("~/"));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         [HttpGet("message")]
         public IActionResult Message(string message)
         {

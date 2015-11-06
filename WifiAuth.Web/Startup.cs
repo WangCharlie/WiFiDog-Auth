@@ -35,6 +35,9 @@ namespace WifiAuth.Web
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
+
+            services.AddCaching();
+            services.AddSession();
             
             // Register application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -68,6 +71,9 @@ namespace WifiAuth.Web
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
+
+            // Configure sessions:
+            app.UseSession();
 
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>

@@ -24,6 +24,7 @@ namespace WifiAuth.Web.Controllers
 
         public IActionResult Index()
         {
+            
             using (SqliteConnection conn = new SqliteConnection(@"Data Source=E:/Database/SQLite/default.db;Cache=Shared"))
             {
                 conn.Open();
@@ -55,7 +56,7 @@ namespace WifiAuth.Web.Controllers
         [HttpPost("api/sendcode")]
         public async Task<IActionResult> SendCode(string phoneNumber)
         {
-            string result = await _smsSender.SendSmsAsync(phoneNumber, Convert.ToString(((int)(new Random().NextDouble() * 0x100000) << 0)));
+            string result = await _smsSender.SendSmsAsync(phoneNumber, Convert.ToString(((int)(new Random().NextDouble() * 0x100000) << 0)).PadLeft(6, '0'));
 
             return Content(result);
         }

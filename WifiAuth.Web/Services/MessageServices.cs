@@ -18,7 +18,7 @@ namespace WifiAuth.Web.Services
     {
         private static readonly String UCPASS_SMS_VERSION = "2014-06-30";
         private static readonly String UCPASS_SMS_ACCOUNT = "fc4742b8e106a66d1cf069af1600dbe4";
-        private static readonly String UCPASS_SMS_TOKEN = "";
+        private static readonly String UCPASS_SMS_TOKEN = "663095f484d49b5801eaa7a35041380f";
         private static readonly String UCPASS_SMS_APPID = "aa166f6bb21d4dfaa36c0fd5270dc3bb";
         private static readonly String UCPASS_SMS_TEMPLATE_URL = "https://api.ucpaas.com/{0}/Accounts/{1}/Messages/templateSMS.json?sig={2}";
         private static readonly Int32  UCPASS_SMS_TEMPLATE_ID = 14756;
