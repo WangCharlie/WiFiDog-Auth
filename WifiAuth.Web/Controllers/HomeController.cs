@@ -6,6 +6,8 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Sqlite;
 using Dapper;
 using WifiAuth.Web.Services;
+using WifiAuth.Web.Extensions;
+using WifiAuth.Web.Entities;
 
 namespace WifiAuth.Web.Controllers
 {
@@ -24,7 +26,10 @@ namespace WifiAuth.Web.Controllers
 
         public IActionResult Index()
         {
-            
+            User user= HttpContext.Session.Get<User>("UserInfo");
+            HttpContext.Session.Set("UserInfo", new User { ID=1001, Name="ZhangSan"});
+            user = HttpContext.Session.Get<User>("UserInfo");
+
             using (SqliteConnection conn = new SqliteConnection(@"Data Source=E:/Database/SQLite/default.db;Cache=Shared"))
             {
                 conn.Open();

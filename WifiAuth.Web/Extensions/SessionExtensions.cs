@@ -13,7 +13,25 @@ namespace WifiAuth.Web.Extensions
 {
     public static class SessionExtensions
     {
-        //private static IDictionary<TypeCode,Type> 
+        private static IDictionary<String, TypeCode> TypeCodes = new Dictionary<String, TypeCode>
+        {
+            { "", TypeCode.Empty },
+            { typeof(string).FullName, TypeCode.String },
+            { typeof(bool).FullName, TypeCode.Boolean },
+            { typeof(sbyte).FullName, TypeCode.SByte },
+            { typeof(byte).FullName, TypeCode.Byte },
+            { typeof(short).FullName, TypeCode.Int16 },
+            { typeof(int).FullName, TypeCode.Int32 },
+            { typeof(long).FullName, TypeCode.Int64 },
+            { typeof(ushort).FullName, TypeCode.UInt16 },
+            { typeof(uint).FullName, TypeCode.UInt32 },
+            { typeof(ulong).FullName, TypeCode.UInt64 },
+            { typeof(char).FullName, TypeCode.Char },
+            { typeof(DateTime).FullName, TypeCode.DateTime },
+            { typeof(double).FullName, TypeCode.Double },
+            { typeof(float).FullName, TypeCode.Single },
+            { typeof(decimal).FullName, TypeCode.Decimal }
+        };
 
         public static object Get(this ISession session, string key)
         {
@@ -31,7 +49,12 @@ namespace WifiAuth.Web.Extensions
         {
             try
             {
-                TypeCode code = Type.GetTypeCode(targetType);
+                TypeCode code =
+#if !DNXCORE50
+                    Type.GetTypeCode(targetType);
+#else
+                    GetTypeCode(targetType);
+#endif
                 var data = session.GetValue(key);
 
                 if (data == null || data.Length == 0)
@@ -44,7 +67,7 @@ namespace WifiAuth.Web.Extensions
                     case TypeCode.Empty: value = null; break;
                     case TypeCode.String: value = Encoding.UTF8.GetString(data); break; 
                     case TypeCode.Boolean: value = BitConverter.ToBoolean(data, 0); break;
-                    case TypeCode.SByte: value= unchecked(data[0]); break;
+                    case TypeCode.SByte: value= unchecked((sbyte)data[0]); break;
                     case TypeCode.Byte: value = data[0]; break;
                     case TypeCode.Int16: value = BitConverter.ToInt16(data,0); break;
                     case TypeCode.Int32: value = BitConverter.ToInt32(data, 0); break;
@@ -103,55 +126,64 @@ namespace WifiAuth.Web.Extensions
                 throw new ArgumentNullException(nameof(key));
             }
 
-            try
-            {
-                byte[] data;
-                TypeCode code = value == null ? TypeCode.Empty : Type.GetTypeCode(value.GetType());
-                switch (code)
-                {
-                    case TypeCode.Empty: data = new byte[0]; break;
-                    case TypeCode.String: data = Encoding.UTF8.GetBytes((string)value); break;
-                    case TypeCode.Boolean: data = BitConverter.GetBytes((bool)value); break;
-                    case TypeCode.SByte: data = new byte[] { (byte)value }; break;
-                    case TypeCode.Byte: data = new byte[] { (byte)value }; break;
-                    case TypeCode.Int16: data = BitConverter.GetBytes((short)value); break;
-                    case TypeCode.Int32: data = BitConverter.GetBytes((int)value); break;
-                    case TypeCode.Int64: data = BitConverter.GetBytes((long)value); break;
-                    case TypeCode.UInt16: data = BitConverter.GetBytes((ushort)value); break;
-                    case TypeCode.UInt32: data = BitConverter.GetBytes((uint)value); break;
-                    case TypeCode.UInt64: data = BitConverter.GetBytes((ulong)value); break;
-                    case TypeCode.Char: data = BitConverter.GetBytes((char)value); break;
-                    case TypeCode.DateTime: data = BitConverter.GetBytes(((DateTime)value).ToBinary()); break;
-                    case TypeCode.Double: data = BitConverter.GetBytes((double)value); break;
-                    case TypeCode.Single: data = BitConverter.GetBytes((float)value); break;
-                    case TypeCode.Decimal:
-                        {
-                            data = new byte[16];
-                            Buffer.BlockCopy(decimal.GetBits((decimal)value), 0, data, 0, 16);
-                            break;
-                        }
-                    case TypeCode.Object:
-                    default:
-                        {
-                            using (var ms = new MemoryStream())
-                            {
+            byte[] data;
+            TypeCode code = value == null ? TypeCode.Empty :
 #if !DNXCORE50
-                                new BinaryFormatter().Serialize(ms, value);
+                Type.GetTypeCode(value.GetType());
+#else
+                GetTypeCode(value.GetType());
 #endif
-                                data = ms.ToArray();
-                            }
-                            break;
-                        }
-                }
-
-                session.Set(key, data);
-
-                return true;
-            }
-            catch (Exception)
+            switch (code)
             {
-                return false;
+                case TypeCode.Empty: data = new byte[0]; break;
+                case TypeCode.String: data = Encoding.UTF8.GetBytes((string)value); break;
+                case TypeCode.Boolean: data = BitConverter.GetBytes((bool)value); break;
+                case TypeCode.SByte: data = new byte[] { (byte)value }; break;
+                case TypeCode.Byte: data = new byte[] { (byte)value }; break;
+                case TypeCode.Int16: data = BitConverter.GetBytes((short)value); break;
+                case TypeCode.Int32: data = BitConverter.GetBytes((int)value); break;
+                case TypeCode.Int64: data = BitConverter.GetBytes((long)value); break;
+                case TypeCode.UInt16: data = BitConverter.GetBytes((ushort)value); break;
+                case TypeCode.UInt32: data = BitConverter.GetBytes((uint)value); break;
+                case TypeCode.UInt64: data = BitConverter.GetBytes((ulong)value); break;
+                case TypeCode.Char: data = BitConverter.GetBytes((char)value); break;
+                case TypeCode.DateTime: data = BitConverter.GetBytes(((DateTime)value).ToBinary()); break;
+                case TypeCode.Double: data = BitConverter.GetBytes((double)value); break;
+                case TypeCode.Single: data = BitConverter.GetBytes((float)value); break;
+                case TypeCode.Decimal:
+                    {
+                        data = new byte[16];
+                        Buffer.BlockCopy(decimal.GetBits((decimal)value), 0, data, 0, 16);
+                        break;
+                    }
+                case TypeCode.Object:
+                default:
+                    {
+                        using (var ms = new MemoryStream())
+                        {
+#if !DNXCORE50
+                            new BinaryFormatter().Serialize(ms, value);
+#endif
+                            data = ms.ToArray();
+                        }
+                        break;
+                    }
             }
+
+            session.Set(key, data);
+
+            return true;
+        }
+
+        private static TypeCode GetTypeCode(Type type)
+        {
+            TypeCode code;
+            if (TypeCodes.TryGetValue(type.FullName,out code))
+            {
+                return code;
+            }
+
+            return TypeCode.Object;
         }
     }
 }
