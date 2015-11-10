@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNet.Http.Features;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-#if !DNXCORE50
-using System.Runtime.Serialization.Formatters.Binary;
-#endif
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace WifiAuth.Web.Extensions
 {
@@ -33,22 +33,34 @@ namespace WifiAuth.Web.Extensions
             { typeof(decimal).FullName, TypeCode.Decimal }
         };
 
-        public static object Get(this ISession session, string key)
+        public static object Get(this ISession session, string key, Type targetType)
         {
-            return session.Get<object>(key);
+            object value;
+            session.TryGet(key, out value, targetType);
+
+            return value;
         }
 
         public static T Get<T>(this ISession session, string key)
         {
-            object tmp;
+            object value;
 
-            return session.TryGet(key, out tmp, typeof(T)) ? (T)tmp : default(T);
+            return session.TryGet(key, out value, typeof(T)) ? (T)value : default(T);
+        }
+
+        public static byte[] GetValue(this ISession session, string key)
+        {
+            byte[] value = null;
+            session.TryGetValue(key, out value);
+            
+            return value;
         }
 
         public static bool TryGet(this ISession session, string key, out object value, Type targetType)
         {
             try
             {
+                targetType = GetNullunableType(targetType);
                 TypeCode code =
 #if !DNXCORE50
                     Type.GetTypeCode(targetType);
@@ -89,14 +101,12 @@ namespace WifiAuth.Web.Extensions
                     case TypeCode.Object:
                     default:
                         {
-                            using (var ms = new MemoryStream(data, 0, data.Length))
+                            using (MemoryStream ms = new MemoryStream(data, 0, data.Length))
                             {
-#if !DNXCORE50
-                                value = new BinaryFormatter().Deserialize(ms);
-#else
-                                value = null; 
-#endif
-
+                                using (BsonReader br = new BsonReader(ms, targetType.IsArray, DateTimeKind.Local))
+                                {
+                                    value = new JsonSerializer().Deserialize(br, targetType);
+                                }
                             }
                             break;
                         }
@@ -111,14 +121,6 @@ namespace WifiAuth.Web.Extensions
             }
         }
 
-        public static byte[] GetValue(this ISession session, string key)
-        {
-            byte[] value = null;
-            session.TryGetValue(key, out value);
-            
-            return value;
-        }
-
         public static bool Set(this ISession session, string key, object value)
         {
             if (string.IsNullOrWhiteSpace(key))
@@ -127,11 +129,12 @@ namespace WifiAuth.Web.Extensions
             }
 
             byte[] data;
+            Type targetType = value == null ? null : GetNullunableType(value.GetType());
             TypeCode code = value == null ? TypeCode.Empty :
 #if !DNXCORE50
-                Type.GetTypeCode(value.GetType());
+                Type.GetTypeCode(targetType);
 #else
-                GetTypeCode(value.GetType());
+                GetTypeCode(targetType);
 #endif
             switch (code)
             {
@@ -159,12 +162,13 @@ namespace WifiAuth.Web.Extensions
                 case TypeCode.Object:
                 default:
                     {
-                        using (var ms = new MemoryStream())
+                        using (MemoryStream ms = new MemoryStream())
                         {
-#if !DNXCORE50
-                            new BinaryFormatter().Serialize(ms, value);
-#endif
-                            data = ms.ToArray();
+                            using (BsonWriter bw = new BsonWriter(ms))
+                            {
+                                new JsonSerializer().Serialize(bw, value);
+                                data = ms.ToArray();
+                            }
                         }
                         break;
                     }
@@ -178,12 +182,16 @@ namespace WifiAuth.Web.Extensions
         private static TypeCode GetTypeCode(Type type)
         {
             TypeCode code;
-            if (TypeCodes.TryGetValue(type.FullName,out code))
-            {
-                return code;
-            }
 
-            return TypeCode.Object;
+            return TypeCodes.TryGetValue(type.FullName, out code) ? code : TypeCode.Object;
+        }
+
+        private static Type GetNullunableType(Type type)
+        {
+            return (type != null && type.GetTypeInfo().IsGenericType &&
+                    type.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+                  ? type.GetGenericArguments()[0]
+                  : type;
         }
     }
 }
