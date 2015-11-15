@@ -15,7 +15,7 @@ namespace WifiAuth.Web.Extensions
     {
         private static IDictionary<String, TypeCode> TypeCodes = new Dictionary<String, TypeCode>
         {
-            { "", TypeCode.Empty },
+            { string.Empty, TypeCode.Empty },
             { typeof(string).FullName, TypeCode.String },
             { typeof(bool).FullName, TypeCode.Boolean },
             { typeof(sbyte).FullName, TypeCode.SByte },

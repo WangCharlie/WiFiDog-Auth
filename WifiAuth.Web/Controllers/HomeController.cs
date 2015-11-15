@@ -26,7 +26,7 @@ namespace WifiAuth.Web.Controllers
 
         public IActionResult Index()
         {
-            using (SqliteConnection conn = new SqliteConnection(@"Data Source=E:/Database/SQLite/default.db;Cache=Shared"))
+            using (SqliteConnection conn = new SqliteConnection(@"Data Source=G:/Database/SQLite/default.db;Cache=Shared"))
             {
                 conn.Open();
                 var d = conn.Query("SELECT * FROM FOO;");
