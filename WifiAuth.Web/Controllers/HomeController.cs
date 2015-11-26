@@ -8,6 +8,7 @@ using Dapper;
 using WifiAuth.Web.Services;
 using WifiAuth.Web.Extensions;
 using WifiAuth.Web.Entities;
+using Microsoft.Extensions.Configuration;
 
 namespace WifiAuth.Web.Controllers
 {
@@ -26,12 +27,6 @@ namespace WifiAuth.Web.Controllers
 
         public IActionResult Index()
         {
-            using (SqliteConnection conn = new SqliteConnection(@"Data Source=../../Data/wifiauth.db;Cache=Shared"))
-            {
-                conn.Open();
-                var d = conn.Query("SELECT * FROM User;");
-            }
-
             return View();
         }
 
@@ -44,7 +39,16 @@ namespace WifiAuth.Web.Controllers
 
         public IActionResult Contact()
         {
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json");
+            var configuration = builder.Build();
+
             ViewData["Message"] = "Your contact page.";
+            using (SqliteConnection conn = new SqliteConnection(configuration["Data:SQLiteConnection:ConnectionString"]))
+            {
+                conn.Open();
+                var d = conn.Query("SELECT * FROM User;");
+            }
 
             return View();
         }
