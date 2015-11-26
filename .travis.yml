@@ -22,4 +22,5 @@ install:
 mono:
   - 4.0.5
 script:
-  - ./openauth/Wifidog-Auth/build.sh --quiet verify
+  - ls
+  - ./build.sh --quiet verify
