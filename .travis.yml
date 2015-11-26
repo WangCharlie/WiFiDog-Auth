@@ -23,5 +23,5 @@ install:
 mono:
   - 4.0.5
 script:
-  - ls
+  - chmod a+x build.sh
   - ./build.sh --quiet verify
