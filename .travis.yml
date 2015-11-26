@@ -19,6 +19,7 @@ install:
   - make
   - make install
   - export LD_LIBRARY_PATH="$HOME/libuvinstall/lib"
+  - cd $OLDPWD
 mono:
   - 4.0.5
 script:
