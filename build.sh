@@ -10,6 +10,7 @@ else
     fi
 fi
 rm -rf $cachedir
+rm -rf .nuget
 mkdir -p $cachedir
 nugetVersion=latest
 cachePath=$cachedir/nuget.$nugetVersion.exe
