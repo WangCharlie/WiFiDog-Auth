@@ -9,8 +9,7 @@ else
         cachedir=$XDG_DATA_HOME;
     fi
 fi
-rm -rf $cachedir
-rm -rf .nuget
+
 mkdir -p $cachedir
 nugetVersion=latest
 cachePath=$cachedir/nuget.$nugetVersion.exe
@@ -27,8 +26,8 @@ if test ! -e .nuget; then
 fi
 
 if test ! -d packages/Sake; then
-  mono .nuget/nuget.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre -Source https://www.myget.org/F/aspnetcidev/api/v3/index.json
-  mono .nuget/nuget.exe install Sake -ExcludeVersion -Source https://www.nuget.org/api/v2/ -Out packages
+    mono .nuget/nuget.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre -Source https://www.myget.org/F/aspnetcidev/api/v3/index.json
+    mono .nuget/nuget.exe install Sake -ExcludeVersion -Source https://www.nuget.org/api/v2/ -Out packages
 fi
 
 if ! type dnvm > /dev/null 2>&1; then

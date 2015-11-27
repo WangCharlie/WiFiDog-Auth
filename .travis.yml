@@ -1,6 +1,7 @@
 language: csharp
 sudo: required
 dist: trusty
+cache: false
 addons:
   apt:
     packages:
