@@ -24,10 +24,10 @@ if test ! -e .nuget; then
     cp $cachePath .nuget/nuget.exe
 fi
 
-if test ! -d packages/Sake; then
-    mono .nuget/nuget.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre
-    mono .nuget/nuget.exe install Sake -ExcludeVersion -Source https://www.nuget.org/api/v2/ -Out packages
-fi
+#if test ! -d packages/Sake; then
+mono .nuget/nuget.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre
+mono .nuget/nuget.exe install Sake -ExcludeVersion -Source https://www.nuget.org/api/v2/ -Out packages
+#fi
 
 if ! type dnvm > /dev/null 2>&1; then
     source packages/KoreBuild/build/dnvm.sh
