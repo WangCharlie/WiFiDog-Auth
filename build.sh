@@ -9,6 +9,7 @@ else
         cachedir=$XDG_DATA_HOME;
     fi
 fi
+rm -rf $cachedir
 mkdir -p $cachedir
 nugetVersion=latest
 cachePath=$cachedir/nuget.$nugetVersion.exe
