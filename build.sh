@@ -26,12 +26,8 @@ if test ! -e .nuget; then
     cp $cachePath .nuget/nuget.exe
 fi
 
-cp NuGet.Config .nuget/
-ls .nuget
-cat .nuget/NuGet.Config
-
 if test ! -d packages/Sake; then
-  mono .nuget/nuget.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre
+  mono .nuget/nuget.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre -Source https://www.myget.org/F/aspnetcidev/api/v3/index.json
   mono .nuget/nuget.exe install Sake -ExcludeVersion -Source https://www.nuget.org/api/v2/ -Out packages
 fi
 
