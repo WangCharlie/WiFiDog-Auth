@@ -1,4 +1,4 @@
-# Wifidog-Auth
+# WiFiDog-Auth
 Repository for the Asp.Net wifidog captive portal auth server
 
 [![Build Status](https://travis-ci.org/openauth/Wifidog-Auth.svg?branch=master)](https://travis-ci.org/openauth/Wifidog-Auth)
