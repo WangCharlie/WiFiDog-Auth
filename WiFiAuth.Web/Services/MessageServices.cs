@@ -59,7 +59,7 @@ namespace WiFiAuth.Web.Services
                     requestMessage.Method = HttpMethod.Post;
                     requestMessage.Headers.TryAddWithoutValidation("Authorization", authStr);
                     requestMessage.Headers.TryAddWithoutValidation("Accept", "application/json");
-                    requestMessage.Content = new StringContent(data, UTF8Encoding.UTF8, "application/json");
+                    requestMessage.Content = new StringContent(data, Encoding.UTF8, "application/json");
 
                     using (HttpResponseMessage responseMessage = await httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseContentRead))
                     {
@@ -71,6 +71,7 @@ namespace WiFiAuth.Web.Services
             }
         }
 
+        /// <summary>
         /// MD5加密
         /// </summary>
         /// <param name="source">原内容</param>

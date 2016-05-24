@@ -9,7 +9,7 @@ namespace WiFiAuth.Web.Services
 {
     public class WiFiAuthService : IWiFiAuthService
     {
-        private string _connectionString;
+        private readonly string _connectionString;
 
         public WiFiAuthService(string connectionString)
         {
