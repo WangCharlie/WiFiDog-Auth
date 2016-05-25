@@ -118,7 +118,7 @@ namespace WiFiAuth.Web.Controllers
         [HttpGet("portal")]
         public IActionResult Portal(string gw_id)
         {
-            return Redirect(Url.Action("~/"));
+            return Redirect("/portal");
         }
 
         /// <summary>

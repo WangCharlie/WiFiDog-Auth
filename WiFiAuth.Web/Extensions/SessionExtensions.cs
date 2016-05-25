@@ -155,7 +155,7 @@ namespace WiFiAuth.Web.Extensions
         private static Type GetNullunableType(Type type)
         {
             return (type != null && type.GetTypeInfo().IsGenericType &&
-                    type.GetGenericTypeDefinition().Equals(typeof(Nullable<>))) ?
+                    type.GetGenericTypeDefinition() == typeof(Nullable<>)) ?
                     type.GetGenericArguments()[0] : type;
         }
     }

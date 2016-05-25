@@ -59,6 +59,8 @@ namespace WiFiAuth.Web
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseSession();
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
