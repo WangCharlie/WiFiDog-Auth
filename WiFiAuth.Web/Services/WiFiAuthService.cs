@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Dapper;
+//using Dapper;
 
 namespace WiFiAuth.Web.Services
 {
@@ -21,7 +21,7 @@ namespace WiFiAuth.Web.Services
             using (SqliteConnection conn = new SqliteConnection(_connectionString))
             {
                 conn.Open();
-                var d = conn.Query("SELECT * FROM User;");
+                //var d = conn.Query("SELECT * FROM User;");
             }
         }
     }

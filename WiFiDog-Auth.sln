@@ -5,11 +5,6 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WiFiAuth.Web", "WiFiAuth.Web\WiFiAuth.Web.xproj", "{C9056462-7747-4478-94DE-CEB2A70174AC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6B2264D-F75E-4369-AB37-45B32231400A}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet.Config = NuGet.Config
-	EndProjectSection
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WiFiAuth.Web.Test", "WiFiAuth.Web.Test\WiFiAuth.Web.Test.xproj", "{0E478A31-FEA1-4344-9EC6-4FFFB497E8F9}"
 EndProject
 Global

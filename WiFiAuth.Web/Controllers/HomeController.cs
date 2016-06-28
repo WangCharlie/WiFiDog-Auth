@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WiFiAuth.Web.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.Sqlite;
-using Dapper;
+//using Dapper;
 
 namespace WiFiAuth.Web.Controllers
 {
